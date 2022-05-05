@@ -1827,8 +1827,7 @@ stories:
   - action: utter_drug_info
   - action: utter_drug_usage
   - action: utter_drug_side_effects
-  - slot_was_set:
-    - drug_name: null
+  - action: action_unset_slot
   - action: utter_anything-else
   - intent: affirm
   - action: utter_ask_question
@@ -1843,8 +1842,7 @@ stories:
   - action: utter_drug_info
   - action: utter_drug_usage
   - action: utter_drug_side_effects
-  - slot_was_set:
-    - drug_name: null
+  - action: action_unset_slot
   - action: utter_anything-else
 
 

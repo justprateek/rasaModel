@@ -53,6 +53,8 @@ intents:
   - problem_mild-heart-disease
   - problem_drug-info
 
+actions:
+  - action_unset_slot
 
 entities: 
   - drug_name
