@@ -20,15 +20,18 @@ intents:
   - problem_headache
   - problem_headache_tension
   - problem_cough
+  - problem_wet_cough
+  - problem_dry_cough
   - problem_nasal-blockage
   - problem_common-cold
+  - problem_stomach_pain
   - problem_conjunctivits
   - problem_gerd
   - problem_diabetes
-  - problem_allergy-rhinitis
+  - problem_allergy
   - problem_fungal-infection
   - problem_chickenpox
-  - problem_typhoid
+  - problem_fever
   - problem_psoriasis
   - problem_obesity
   - problem_insomnia
@@ -68,6 +71,7 @@ responses:
   - text: "Hii! I am Medicbot, your healthcare assistant"
   - text: "Hi and Welcome! Medicbot AI Assistant is ready to help you here"
 
+
   utter_select_one:
     - text: "Please select one of the following to continue"
       buttons:
@@ -87,7 +91,7 @@ responses:
     - text: Goodbye! Have a good day
       buttons:
         - title: "Restart Conversation"
-          payload: /session_start
+          payload: /restart
 
   utter_iamabot:
   - text: "I am a healthcare assistant chatbot, powered by RASA"
@@ -156,12 +160,27 @@ responses:
   utter_nasal-blockage-advice:
   - text: use steam vapourizer and avoid cold baths
 
-  utter_cough-a:
-  - text: You have cough. You should take 5mL dosage of Benadryl Syrup when you get cough
-  utter_cough-b:
-  - text: You have cough. You should take 10mL dosage of Benadryl Syrup when you get cough
-  utter_cough-advice:
-  - text: drink ginger tea or honey tea to avoid cough
+  utter_cough_question:
+  - text: Do you have dry cough or wet cough
+    buttons:
+      - title: "dry cough"
+        payload: /problem_dry_cough
+      - title: "wet cough"
+        payload: /problem_wet_cough
+
+  utter_dry_cough-a:
+  - text: You have dry cough. You should take 5mL dosage of pholcodine Syrup upto 4 times in any 24 hours.
+  utter_dry_cough-b:
+  - text: You have dry cough. You should take 10mL dosage of pholcodine Syrup upto 6 times in any 24 hours.
+  utter_dry_cough-advice:
+  - text: drink ginger tea or honey tea to avoid drycough
+
+  utter_wet_cough-a:
+  - text: You have wet cough. You should take 5mL dosage of Benadryl Syrup upto 4 times in any 24 hours.
+  utter_wet_cough-b:
+  - text: You have wet cough. You should take 10mL dosage of Benadryl Syrup upto 6 times in any 24 hours.
+  utter_wet_cough-advice:
+  - text: have steamy shower or honey tea to avoid wet cough
 
   utter_common-cold-a:
   - text: "You have a cold. You should take a 5mg dosage of Cetrizine after your dinner, if the problem persists."
@@ -234,11 +253,11 @@ responses:
   - text : You have chickenpox. Take 5mg tablets of Zovirax, apply calamine lotion 2mg daily. 
   utter_chickenpox-advice: 
   - text : Wear mittens to prevent scratching, Take baking soda baths, Use chamomile compresses, Have approved pain relievers
-  utter_typhoid-a: 
-  - text : You have typhoid. azithromycin given for 7 days at a dosage of 10 mg/kg/day, maximum 500mg a day. 
-  utter_typhoid-b: 
-  - text : You have typhoid. Take 2-3mg tablets Ciprofloxacin (Cipro), Azithromycin (Zithromax) or Ceftriaxone on daily basis a little amount. 
-  utter_typhoid-advice: 
+  utter_fever-a: 
+  - text : You have fever. take one or two 500mg tablets of paracetamol upto 4 times in 24hours. 
+  utter_fever-b: 
+  - text : You have fever. Take one 250mg tablets of paracetamol upto 4 times in 24hours. 
+  utter_fever-advice: 
   - text : Take antibiotic, drinking adequate water. Consult a doctor
   utter_psoriasis-a: 
   - text : You have psoriasis. Take 2-3mg dozes Anthralin, , Coal tar daily. 
@@ -253,7 +272,7 @@ responses:
   utter_obesity-advice: 
   - text : Do exercise and yoga. Have medications and consult for weight loss surgery. 
   utter_insomnia-a: 
-  - text : You have insomnia. Take Antihistamines like diphenhydramine (Nytol, Sominex) of 2-3mg, 2doze daily. 
+  - text : You have insomnia. Take Antihistamines like diphenhydramine (Nytol, Sominex) of 2-3mg, 2 dose daily. 
   utter_insomnia-b: 
   - text : You have insomnia. Have 3.75mg dozes daily of sleeping pills. 
   utter_insomnia-advice: 

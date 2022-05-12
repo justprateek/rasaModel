@@ -2,54 +2,71 @@ version: "2.0"
 
 rules:
 
-- rule: ask to help when user says hello
+- rule: ask to help when user says hello 1
   steps:
   - intent: greet
   - action: utter_greet
   - action: utter_select_one
 
+- rule: if greet ask to select 2
+  steps:
+  - action: utter_greet
+  - action: utter_select_one
 
-- rule: Say goodbye anytime the user says goodbye
+
+- rule: Say goodbye anytime the user says goodbye 3 
   steps:
   - intent: goodbye
   - action: utter_goodbye
+  wait_for_user_input: false
 
-- rule: out of scope
+- rule: restart after goodbye 4
+  steps:
+  - action: utter_goodbye
+  - action: action_restart
+  wait_for_user_input: false
+
+
+- rule: out of scope 5
   steps:
   - intent: out_of_scope
   - action: utter_please_rephrase
 
-- rule: fallback
+- rule: fallback 6
   steps:
   - intent: nlu_fallback
   - action: utter_please_rephrase
 
 
-- rule: are you a bot
+- rule: are you a bot 7
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
 
-- rule: show images if headache
+- rule: show images if headache 8
   steps:
   - intent: problem_headache
   - action: utter_headache_image
   - action: utter_headache_question
 
+- rule: ask about dry or wet cough 9
+  steps:
+  - intent: problem_cough
+  - action: utter_cough_question
 
-- rule: reply with drug information when slot 
+- rule: reply with drug information when slot 10 
   steps:
   - intent: problem_drug-info
   - action: utter_drug_info
   wait_for_user_input: false
 
-- rule: continuation for drug info 1
+- rule: continuation for drug info 11
   steps:
   - action: utter_drug_info
   - action: utter_drug_usage
   wait_for_user_input: false
 
-- rule: continuation for drug info 1
+- rule: continuation for drug info 12
   steps:
   - action: utter_drug_usage
   - action: utter_drug_side_effects
@@ -57,50 +74,62 @@ rules:
 
 
 
-- rule: continuation for drug info 2
+- rule: continuation for drug info 13
   steps:
   - action: utter_drug_side_effects
   - action: action_unset_slot
   wait_for_user_input: false
 
-- rule: continuation for drug info 3
+- rule: continuation for drug info 14
   steps:
   - action: action_unset_slot
   - action: utter_anything-else
 
-- rule: user want info on drug
+- rule: user want info on drug 15
   steps:
   - intent: info_on_drugs
   - action: utter_ask_about_drug
 
-- rule: user want symptom checker
+- rule: user want symptom checker 16 
   steps:
   - intent: describe_symptoms
   - action: utter_check_symptoms
 
-- rule: want to ask question
+- rule: want to ask question 17
   steps:
   - intent: want_to_ask_question
   - action: utter_ask_question
-  - action: utter_select_one
 
-- rule: user wants help
+
+
+- rule: user wants help 18
   steps:
   - action: utter_anything-else
   - intent: affirm
   - action: utter_ask_question
+  wait_for_user_input: false
 
-- rule: user doesn't want help
+- rule: user doesn't want help 19
   steps:
   - action: utter_anything-else
   - intent: deny
   - action: utter_goodbye
+  wait_for_user_input: false
 
-
-- rule: user doesn't want help 2
+- rule: user doesn't want help 20
   steps:
   - action: utter_anything-else
   - intent: goodbye
   - action: utter_goodbye
+  wait_for_user_input: false
+
+
+- rule: continue texting rule 21
+  steps:
+  - action: utter_ask_question
+  - action: action_restart
+  - action: utter_select_one
+
+
 
 
