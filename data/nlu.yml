@@ -555,6 +555,22 @@ nlu:
     - i am always rubbing my eyes because of itching, irritation and burning sensation
     - having itching, irritation and burning sensation
 
+- intent: problem_allergy
+  examples: |
+    - allergy
+    - i have allergy
+    - i am suffering from allergy
+    - i am having dust allergy
+    - i am having sneezing when i get in contact with dust
+    - i am having dust allergy and food allergy
+    - i am having dust allergy and i can't able to eat sea food
+    - i am having food allergy
+    - i am allergic to sea food
+    - i am having food allergy and having rashes when getting contact with flowers
+    - i am having rashes when getting contact with some flowers
+    - i am having rashes when getting contact with flowers and pet allergy
+    - i am having pet allergy
+
 - intent: problem_gerd
   examples: |
     - heartburn

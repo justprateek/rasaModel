@@ -77,12 +77,6 @@ rules:
 - rule: continuation for drug info 13
   steps:
   - action: utter_drug_side_effects
-  - action: action_unset_slot
-  wait_for_user_input: false
-
-- rule: continuation for drug info 14
-  steps:
-  - action: action_unset_slot
   - action: utter_anything-else
 
 - rule: user want info on drug 15

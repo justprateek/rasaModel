@@ -1983,7 +1983,6 @@ stories:
   - action: utter_drug_info
   - action: utter_drug_usage
   - action: utter_drug_side_effects
-  - action: action_unset_slot
   - action: utter_anything-else
   - intent: affirm
   - action: utter_ask_question
@@ -2000,7 +1999,6 @@ stories:
   - action: utter_drug_info
   - action: utter_drug_usage
   - action: utter_drug_side_effects
-  - action: action_unset_slot
   - action: utter_anything-else
 
 - story: continuing texting
@@ -2572,3 +2570,24 @@ stories:
 #     - drug_name: brilinta
 #   - action: utter_drug_info
 #   - action: utter_drug_usage 
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_select_one
+  - intent: info_on_drugs
+  - action: utter_ask_about_drug
+  - intent: problem_drug-info
+    entities:
+    - drug_name: paracetamol
+    - drug_name: paracetamol
+  - slot_was_set:
+    - drug_name: paracetamol
+  - action: utter_drug_info
+  - action: utter_drug_usage
+  - action: utter_drug_side_effects
+  - action: utter_anything-else
+  - intent: deny
+  - action: utter_goodbye
+  - action: action_restart
